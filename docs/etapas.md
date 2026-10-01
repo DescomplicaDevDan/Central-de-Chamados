@@ -14,8 +14,8 @@ Os caminhos abaixo são previstos e podem ser refinados antes da implementação
 - [x] Definir permissões, transições e critérios de aceite.
 - [x] Registrar stack, arquitetura, etapas e Kanban.
 - [x] Identificar itens fora do escopo e decisões pendentes.
-- [ ] Revisar a documentação com o autor do projeto.
-- [ ] Autor realizar o commit manual da documentação.
+- [x] Revisar a documentação com o autor do projeto.
+- [x] Autor realizar o commit manual da documentação (`281e876`).
 
 **Verificação:** coerência entre regras, critérios, roadmap e links locais. Não há testes de aplicação nesta etapa.
 
@@ -27,13 +27,13 @@ Os caminhos abaixo são previstos e podem ser refinados antes da implementação
 
 **Arquivos previstos:** manifesto e lock de dependências, configurações do Next.js, TypeScript, ESLint e Tailwind, `.gitignore`, `src/app/`, README inicial.
 
-- [ ] Verificar compatibilidade e registrar versões adotadas.
-- [ ] Criar Next.js com App Router e TypeScript estrito.
-- [ ] Configurar Tailwind CSS e ESLint.
-- [ ] Criar scripts de desenvolvimento, lint, typecheck e build.
-- [ ] Organizar diretórios por domínio conforme a necessidade.
-- [ ] Documentar requisitos e comandos locais efetivamente disponíveis.
-- [ ] Verificar que segredos e arquivos gerados não serão versionados.
+- [x] Registrar versões adotadas e a pendência de compatibilidade/manutenção do ESLint.
+- [x] Criar Next.js com App Router e TypeScript estrito.
+- [x] Configurar Tailwind CSS e ESLint.
+- [x] Criar scripts de desenvolvimento, lint, typecheck e build.
+- [x] Iniciar `src/app`; domínios serão criados quando houver funcionalidades.
+- [x] Documentar requisitos e comandos locais disponíveis.
+- [x] Verificar que segredos e arquivos gerados não serão versionados.
 
 **Verificação:** instalar pelo lock, executar lint, typecheck e build; iniciar a aplicação localmente.
 

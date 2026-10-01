@@ -63,8 +63,8 @@ Evitar uma issue única para toda a aplicação. As dez etapas são marcos; cada
 - [x] Registrar tecnologias e decisões pendentes.
 - [x] Detalhar dez etapas, verificações e fluxo de dados.
 - [x] Definir Kanban e processo de commits manuais.
-- [ ] Autor revisar o conteúdo.
-- [ ] Autor realizar commit.
+- [x] Autor revisar o conteúdo.
+- [x] Autor realizar commit (`281e876`).
 
 **Verificação:** conferir links locais, consistência das transições e ausência de afirmações sobre funcionalidades ainda não implementadas.
 
@@ -100,7 +100,7 @@ Se o diretório ainda não for um repositório, o autor poderá inicializá-lo m
 
 ## Comandos previstos de qualidade
 
-Estes comandos só estarão disponíveis depois de seus scripts serem criados. Não foram executados nesta etapa documental.
+Lint, typecheck e build estão configurados na etapa 2. Os comandos de testes permanecem planejados e ainda não existem no manifesto.
 
 | Comando previsto | Finalidade |
 | --- | --- |

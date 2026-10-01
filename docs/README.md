@@ -11,11 +11,12 @@ Central interna de suporte para abrir, atender e acompanhar chamados. Projeto de
 
 ## Situação atual
 
-- Documentação inicial criada, pendente de revisão pelo autor do projeto.
-- Aplicação, banco, testes e pipeline ainda não implementados.
+- Documentação inicial revisada e registrada no commit `281e876`.
+- Base da aplicação criada na etapa 2, com página inicial e configurações de qualidade.
+- Banco, autenticação, chamados, testes e pipeline ainda não implementados.
 - Quadro e issues no GitHub ainda não criados.
 - Demonstração ainda não publicada.
 
 As caixas dos checklists representam entregas verificadas, não intenções. Só devem ser marcadas após conferir o resultado.
 
-O README da raiz será preparado com instruções executáveis quando a aplicação existir e finalizado na etapa 10. Links de demonstração, portfólio, LinkedIn e repositórios serão incluídos apenas quando fornecidos ou verificados.
+O [README da raiz](../README.md) apresenta a base e seus comandos. Será finalizado na etapa 10. Links de demonstração, portfólio e LinkedIn serão incluídos apenas quando fornecidos ou verificados.

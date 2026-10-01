@@ -1,6 +1,30 @@
-# Stack e arquitetura planejadas
+# Stack e arquitetura
 
-Este documento descreve decisões de projeto, não uma implementação existente. Versões e compatibilidade serão verificadas na etapa 2 e registradas no manifesto e no arquivo de lock. A autenticação será validada antes da etapa 5.
+Este documento distingue a base instalada da arquitetura planejada. A autenticação será validada antes da etapa 5.
+
+## Base instalada na etapa 2
+
+| Tecnologia | Versão | Uso atual |
+| --- | --- | --- |
+| Next.js | 16.3.8 | App Router, página inicial e comandos de desenvolvimento/build |
+| React / React DOM | 19.3.0 | Renderização da página e layout |
+| TypeScript | 5.9.3 | Modo estrito e checagem sem emissão |
+| Tailwind CSS / plugin PostCSS | 4.3.3 | Estilos da página inicial |
+| PostCSS | 8.5.28 | Processamento do CSS |
+| ESLint | 9.39.5 | Análise estática com configuração Next.js |
+| eslint-config-next | 16.3.8 | Regras do framework e TypeScript |
+
+O manifesto e o lock são as fontes exatas das dependências, incluindo pacotes de tipos. Node.js 26.4.0 e npm 11.17.0 são o ambiente verificado do projeto. `.nvmrc` registra essa versão, sem instalar Node automaticamente. A automação usada para instalar pacotes também validou o lock com Node.js 22.23.0 e npm 10.9.8.
+
+TypeScript 5.9.3 foi escolhido conservadoramente para esta base. As dependências diretas ficam fixadas, e `npm ci` reproduz o lock.
+
+**Pendência de manutenção:** o npm sinaliza ESLint 9 como fora de suporte. ESLint 10.11.0 foi avaliado, mas o plugin React da configuração Next.js falhou com `contextOrFilename.getFilename is not a function`. A base mantém 9.39.5 por compatibilidade; revisar essa decisão quando a configuração suportar a atualização. Nenhuma regra foi desligada para contornar a falha.
+
+A instalação manual preservou a documentação e o repositório existentes. Foram consultadas as instruções oficiais de [Next.js](https://nextjs.org/docs/app/getting-started/installation) e [Tailwind CSS](https://tailwindcss.com/docs/installation/framework-guides/nextjs).
+
+`src/app/layout.tsx` define idioma, metadados e estilos globais. `src/app/page.tsx` é um Server Component estático. `next typegen` prepara tipos de rotas antes de `tsc --noEmit`, inclusive em uma instalação nova. Não há banco, sessão ou domínio funcional nesta etapa.
+
+O build de produção usa `next build --webpack`. Neste ambiente Windows, o Turbopack recebeu `Access is denied` ao criar o processo que transforma o CSS; Webpack é a alternativa suportada pelo próprio Next.js e permite manter a verificação de produção reproduzível. O servidor de desenvolvimento mantém `next dev`, cujo padrão é Turbopack, e essa decisão poderá ser revista quando o ambiente permitir.
 
 ## Tecnologias
 
@@ -110,11 +134,11 @@ Mocks não comprovam transações ou concorrência no banco. Esses cenários exi
 
 ## Decisões pendentes
 
-- [ ] Fixar versões compatíveis de Node.js, gerenciador de pacotes e dependências.
+- [x] Registrar ambiente de referência e fixar dependências da base; acompanhar a pendência de manutenção do ESLint.
 - [ ] Escolher biblioteca e estratégia de sessão.
 - [ ] Definir execução local do PostgreSQL e banco isolado de testes.
 - [ ] Definir estratégia transacional para disputas e operações simultâneas.
 - [ ] Escolher hospedagem da aplicação e do PostgreSQL considerando custos e limitações reais.
 - [ ] Definir reposição e proteção dos dados públicos de demonstração.
 
-O uso de npm nos exemplos do processo é uma convenção inicial; os comandos executáveis só serão documentados como verificados depois da criação dos scripts.
+O projeto usa npm e `package-lock.json`. Os scripts atuais estão no README da raiz; scripts de testes serão adicionados nas entregas correspondentes.
