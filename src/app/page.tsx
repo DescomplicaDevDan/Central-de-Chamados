@@ -1,6 +1,7 @@
 import { AppShell } from "@/components/layout/app-shell";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
 
 export default function HomePage() {
   return (
@@ -21,9 +22,13 @@ export default function HomePage() {
 
         <div className="mt-8 max-w-xl">
           <Card>
-            <h2 className="text-lg font-semibold text-slate-950">
-              Abertura de chamados
-            </h2>
+            <div className="flex items-center justify-between gap-4">
+              <h2 className="text-lg font-semibold text-slate-950">
+                Abertura de chamados
+              </h2>
+
+              <Badge variant="warning">Em breve</Badge>
+            </div>
 
             <p className="mt-2 text-sm leading-6 text-slate-600">
               O formulário de abertura será implementado nas próximas etapas.
