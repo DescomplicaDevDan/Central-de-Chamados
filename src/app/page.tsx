@@ -1,12 +1,10 @@
 import { AppShell } from "@/components/layout/app-shell";
-import { Button } from "@/components/ui/button";
-import { Card } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
+import { TicketFormPreview } from "@/domains/tickets/components/ticket-form-preview";
 
 export default function HomePage() {
   return (
     <AppShell>
-      <section>
+      <section className="mx-auto max-w-3xl">
         <p className="text-sm font-semibold text-blue-700">
           Projeto em desenvolvimento
         </p>
@@ -21,23 +19,7 @@ export default function HomePage() {
         </p>
 
         <div className="mt-8 max-w-xl">
-          <Card>
-            <div className="flex items-center justify-between gap-4">
-              <h2 className="text-lg font-semibold text-slate-950">
-                Abertura de chamados
-              </h2>
-
-              <Badge variant="warning">Em breve</Badge>
-            </div>
-
-            <p className="mt-2 text-sm leading-6 text-slate-600">
-              O formulário de abertura será implementado nas próximas etapas.
-            </p>
-
-            <Button className="mt-6" disabled>
-              Abrir chamado
-            </Button>
-          </Card>
+          <TicketFormPreview />
         </div>
       </section>
     </AppShell>
