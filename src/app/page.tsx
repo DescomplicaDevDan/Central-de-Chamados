@@ -1,4 +1,6 @@
 import { AppShell } from "@/components/layout/app-shell";
+import { Button } from "@/components/ui/button";
+import { Card } from "@/components/ui/card";
 
 export default function HomePage() {
   return (
@@ -16,6 +18,22 @@ export default function HomePage() {
           A Central de Chamados permitirá que solicitantes acompanhem pedidos de
           suporte e que atendentes organizem seus atendimentos.
         </p>
+
+        <div className="mt-8 max-w-xl">
+          <Card>
+            <h2 className="text-lg font-semibold text-slate-950">
+              Abertura de chamados
+            </h2>
+
+            <p className="mt-2 text-sm leading-6 text-slate-600">
+              O formulário de abertura será implementado nas próximas etapas.
+            </p>
+
+            <Button className="mt-6" disabled>
+              Abrir chamado
+            </Button>
+          </Card>
+        </div>
       </section>
     </AppShell>
   );
