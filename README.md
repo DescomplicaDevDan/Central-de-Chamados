@@ -28,10 +28,12 @@ Abra [localhost:3000](http://localhost:3000). Nesta etapa não são necessários
 | `npm run dev` | Servidor de desenvolvimento |
 | `npm run lint` | Análise estática, sem permitir avisos |
 | `npm run typecheck` | Geração de tipos de rotas e checagem TypeScript |
+| `npm test` | Executa testes unitários e de componentes uma vez |
+| `npm run test:watch` | Executa testes novamente ao salvar alterações |
 | `npm run build` | Build de produção com Webpack |
 | `npm start` | Servir o build de produção |
 
-Vitest, React Testing Library, Playwright e GitHub Actions serão incorporados conforme o [roteiro](docs/etapas.md). Ainda não existem comandos de testes.
+Vitest e React Testing Library estão configurados para testes de componentes. Playwright e GitHub Actions serão incorporados conforme o [roteiro](docs/etapas.md).
 
 ## Arquitetura e decisões
 
