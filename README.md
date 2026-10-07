@@ -6,22 +6,48 @@ Pedidos de suporte dispersos dificultam acompanhar responsáveis e soluções. E
 
 ## Estado atual
 
-Base com Next.js App Router, React, TypeScript estrito, Tailwind CSS e ESLint. A página inicial informa o andamento do projeto.
+A interface usa Next.js App Router, React, TypeScript estrito, Tailwind CSS e componentes reutilizáveis. Vitest e React Testing Library estão configurados para testes de componentes.
 
-Login, banco de dados, chamados e testes automatizados ainda não estão implementados. Próxima etapa: layout responsivo, navegação e componentes compartilhados.
+O PostgreSQL local pode ser iniciado com Docker Compose. Prisma, esquema do banco, autenticação e integração dos chamados com o banco ainda estão pendentes. A aplicação ainda não lê nem grava dados no PostgreSQL.
 
 ## Executar localmente
 
-Ambiente verificado: Node.js 26.4.0 e npm 11.17.0. A versão de Node está em `.nvmrc`; as dependências são fixadas em `package-lock.json`. O Next.js requer Node.js 20.9.0 ou superior; este projeto aceita versões anteriores à 27.
+Requisitos: Node.js e npm conforme `.nvmrc`, e Docker Desktop em execução.
 
-```bash
+Clone o repositório e instale as dependências:
+
+```powershell
 git clone https://github.com/DescomplicaDevDan/Central-de-Chamados.git
 cd Central-de-Chamados
 npm ci
+```
+
+No primeiro uso, crie o arquivo local de variáveis e defina nele uma senha exclusiva:
+
+```powershell
+Copy-Item .env.example .env
+```
+
+Abra `.env` e preencha `POSTGRES_PASSWORD` com uma senha exclusiva para o banco local. Não compartilhe nem versione esse arquivo.
+
+Inicie o PostgreSQL e confira se está pronto:
+
+```powershell
+docker compose up -d
+docker compose ps
+```
+
+O serviço `db` deve aparecer com status `healthy`. Inicie a aplicação em outro terminal:
+
+```powershell
 npm run dev
 ```
 
-Abra [localhost:3000](http://localhost:3000). Nesta etapa não são necessários banco ou variáveis de ambiente.
+Abra [localhost:3000](http://localhost:3000). A aplicação ainda não lê nem grava dados no PostgreSQL. Para parar o banco sem remover seus dados locais:
+
+```powershell
+docker compose stop
+```
 
 | Comando | Finalidade |
 | --- | --- |
@@ -40,7 +66,7 @@ Vitest e React Testing Library estão configurados para testes de componentes. P
 - Código em `src/app`, com página e layout como Server Components.
 - Domínios `tickets`, `auth` e `users` serão criados quando suas funcionalidades forem implementadas.
 - Server Actions e Route Handlers atenderão as operações no servidor, sem Express separado.
-- PostgreSQL, Prisma e Zod estão planejados; não instalados nesta etapa.
+- PostgreSQL local é executado com Docker Compose; Prisma e Zod ainda não estão instalados, e a aplicação ainda não se conecta ao banco.
 - Dependências e lock versionados; arquivos gerados e segredos ignorados pelo Git.
 
 Consulte a [documentação](docs/README.md), as [regras e critérios de aceite](docs/produto.md) e as [decisões técnicas](docs/arquitetura.md).
